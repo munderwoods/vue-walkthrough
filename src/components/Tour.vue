@@ -16,7 +16,7 @@ export default {
         [
           {
             elementId: 'content',
-            completion: {type: 'time', payload: 3000},
+            completion: {type: 'next', payload: null},
             text: "Walkthroughs are data driven, built out of steps you define in JSON. Click next.",
             interactive: false,
           },
@@ -28,7 +28,12 @@ export default {
           {
             elementId: 'welcome',
             completion: {type: 'event', payload: 'c_pressed'},
-            text: "Requiring the user to click an element is useful for when a walkthrough requires navigation through the app in order to progress. There are also \"time\" and \"event\" completion types. Using the Vue Event Bus allows you to specify almost anything as a completion requirement. Press \"c\" on your keyboard to continue.",
+            text: "Requiring the user to click an element is useful for when navigation through the app is necessary to progress the walkthrough. Another completion type is \"event\". Using the Vue Event Bus allows you to specify almost anything as a completion requirement. Press \"c\" on your keyboard to continue.",
+          },
+          {
+            elementId: 'vue-logo',
+            completion: {type: 'time', payload: 5000},
+            text: "The final completion type is \"time\". Please wait five seconds.",
           },
           {
             elementId: 'checkbox',

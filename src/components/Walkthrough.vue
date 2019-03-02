@@ -42,6 +42,7 @@ export default {
         bottom: 0,
         right: 0,
       },
+      overflow: null,
     }
   },
 
@@ -74,9 +75,7 @@ export default {
 
 					this.incrementWalkthrough()
 
-					if(!document.body.className.includes('modal')) {
-						document.body.className = 'modal';
-					}
+          this.switchScroll("on");
 
 					document.addEventListener('keyup', e => {
 						if(e.code === 'Escape') {
@@ -97,13 +96,22 @@ export default {
   },
 
   methods: {
+    switchScroll(onOff) {
+      if(onOff === "on") {
+        let bodyStyle = window.getComputedStyle(document.body);
+        this.overflow = bodyStyle.getPropertyValue('overflow');
+        document.body.style.overflow = "hidden";
+        console.log(document.body.style.overflow);
+      } else {
+        document.body.style.overflow = this.overflow;
+      }
+    },
+
     incrementWalkthrough() {
       if(this.stepNumber < this.stepCount) {
         this.stepNumber++;
       } else {
-        if(document.body.className.includes('modal')) {
-          document.body.className = '';
-        }
+        this.switchScroll("off");
         this.started = false;
         this.stepNumber = 0;
       }
@@ -117,9 +125,7 @@ export default {
     },
 
     cancel() {
-			if(document.body.className.includes('modal')) {
-				document.body.className = '';
-      }
+      this.switchScroll("off");
       this.started = false;
       this.stepNumber = 0;
     }
