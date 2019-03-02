@@ -1,7 +1,7 @@
 <template>
   <div class="explainer">
     <h1 id="welcome">Welcome</h1>
-    <p>This is a demonstration of a walkthrough Vue component created by Matthew Underwood.</p>
+    <p>This is a demonstration of a walkthrough Vue component created by Matthew Underwood. Walkthroughs can seemlessly lead into one another. If you want to direct someone to start a walkthrough from within another walkthrough you can do that. This includes an alternate implementation for Safari. It will work, but it will not be as attractive.</p>
     <p>Click the button below to start the demonstration.</p>
     <button @click="start">Click here to start</button>
   </div>
@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .explainer {
-  width: fit-content;
+  width: 60%;
   margin: auto;
 }
 

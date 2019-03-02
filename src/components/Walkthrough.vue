@@ -101,7 +101,6 @@ export default {
         let bodyStyle = window.getComputedStyle(document.body);
         this.overflow = bodyStyle.getPropertyValue('overflow');
         document.body.style.overflow = "hidden";
-        console.log(document.body.style.overflow);
       } else {
         document.body.style.overflow = this.overflow;
       }

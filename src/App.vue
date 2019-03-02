@@ -5,6 +5,9 @@
       <Explainer/>
       <br>
       <input type="checkbox" id="checkbox">
+      <br>
+      <br>
+      <p class="animation" id="animation" @mouseover="animate">{{active ? "I'm quite a bit larger." : "I'm small."}}</p>
     </div>
     <Tour/>
     <p class="bottom" id="bottom">#</p>
@@ -21,13 +24,27 @@ export default {
     Explainer,
     Tour
   }, 
+
+  data() {
+    return {
+      active: false,
+    }
+  },
+
 	mounted() {
 		window.addEventListener("keypress", e => {
 			if(String.fromCharCode(e.keyCode) === "c") {
 				this.$eventBus.$emit('c_pressed');
 			}
 		});
-	}
+
+	},
+
+  methods: {
+    animate() {
+      this.active = !this.active;
+    }
+  }
 }
 </script>
 
@@ -43,7 +60,7 @@ export default {
 
 body {
   margin:0;
-  overflow:scroll;
+  overflow-y:scroll;
 }
 
 button {
@@ -55,6 +72,12 @@ button {
   cursor: pointer;
 	white-space: nowrap;
 	height: 27px;
+}
+
+.animation {
+  width: fit-content;
+  margin: auto;
+  font-size: 16px;
 }
 
 .bottom {

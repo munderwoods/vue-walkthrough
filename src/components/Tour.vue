@@ -17,13 +17,13 @@ export default {
           {
             elementId: 'content',
             completion: {type: 'next', payload: null},
-            text: "Walkthroughs are data driven, built out of steps you define in JSON. Click next.",
+            text: "Walkthroughs are data driven, built out of steps you define in JSON. Click Next.",
             interactive: false,
           },
           {
             elementId: 'vue-logo',
             completion: {type: 'click', payload: null},
-            text: "Each step consists of an element id that specifies which element on the page to call out, the text that appears here, and a completion requirement. The previous step in this walkthrough had a completion type of \"next\". This one is \"click\". That's why there's no longer a next button displayed. Click on the highlighted element to continue.",
+            text: "Each step consists of an element id that specifies which element on the page to call out, the text that appears here, and a completion requirement. The previous step in this walkthrough had a completion type of \"next\". This one is \"click\". That's why there's no longer a Next button displayed. Click on the highlighted element to continue.",
           },
           {
             elementId: 'welcome',
@@ -43,13 +43,23 @@ export default {
           {
             elementId: 'checkbox',
             completion: {type: 'next', payload: null},
-            text: "Try checking the checkbox again. This step is not interactive. This functionality allows for explanatory steps that can't be broken by unwanted user inputs. Click next.",
+            text: "Try checking the checkbox again. This step is not interactive. This functionality allows for explanatory steps that can't be broken by unwanted user inputs. Click Next.",
             interactive: false,
           },
           {
             elementId: 'bottom',
             completion: {type: 'next', payload: null},
             text: "If there is't enough space to fit the instruction on the bottom of the screen then it's automatically pushed to the top. The highlighted element will also be scrolled into view smoothly.",
+          },
+          {
+            elementId: 'animation',
+            completion: {type: 'next', payload: null},
+            text: "The callout listens for mutations on the element that it's highlighting. Mouse over the highlighted element a few times then press Next.",
+          },
+          {
+            elementId: 'vue-logo',
+            completion: {type: 'next', payload: null},
+            text: "The overflow setting on the document body is stored and over-written for the duration of the walkthrough. When you click Finish you will see a scroll bar reappear. This will conclude the demonstration. Thanks.",
           },
         ],
     }
