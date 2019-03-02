@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" id="vue-logo">
-    <Explainer/>
+    <div class="content" id="content">
+      <img alt="Vue logo" src="./assets/logo.png" id="vue-logo">
+      <Explainer/>
+      <br>
+      <input type="checkbox" id="checkbox">
+    </div>
     <Tour/>
+    <p class="bottom" id="bottom">#</p>
   </div>
 </template>
 
@@ -49,5 +54,11 @@ button {
   cursor: pointer;
 	white-space: nowrap;
 	height: 27px;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
 }
 </style>

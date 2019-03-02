@@ -14,7 +14,7 @@
 				>{{final ? 'Finish' : 'Next'}}
 				</button>
 
-        <button @click="cancel">Close Guide</button>
+        <button @click="cancel" v-if="!final">Close Guide</button>
         </div>
 
 			</div>
@@ -194,6 +194,7 @@ export default {
   max-width: 80%;
   font-weight: 400;
   justify-content:space-between;
+  box-shadow: 3px 3px 15px #33333322;
 }
 
 .instruction-text {

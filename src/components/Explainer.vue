@@ -1,6 +1,6 @@
 <template>
   <div class="explainer">
-    <h1>Welcome</h1>
+    <h1 id="welcome">Welcome</h1>
     <p>This is a demonstration of a walkthrough Vue component created by Matthew Underwood.</p>
     <p>Click the button below to start the demonstration.</p>
     <button @click="start">Click here to start</button>
@@ -23,6 +23,11 @@ export default {
 </script>
 
 <style scoped>
+.explainer {
+  width: fit-content;
+  margin: auto;
+}
+
 h3 {
   margin: 40px 0 0;
 }

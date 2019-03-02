@@ -32,9 +32,13 @@
       "
 		/>
 
-    <svg width='0' height='0' v-if="!(elementBox.top === 0 && elementBox.left === 0 && elementBox.bottom === 0 && elementBox.right === 0)">
+    <svg 
+      width='0' 
+      height='0' 
+      v-if="!(elementBox.top === 0 && elementBox.left === 0 && elementBox.bottom === 0 && elementBox.right === 0)"
+    >
       <defs>
-        <clipPath id='cp'>
+        <clipPath id='cutout'>
           <path 
             :d="`
               M 0.00,0.00 V ${windowHeight} H ${windowWidth} V 0.00 Z 
@@ -46,9 +50,13 @@
     </svg>
     <div v-if="!safari" class="svg-callout"/>
 
-    <svg width='0' height='0' v-if="!(elementBox.top === 0 && elementBox.left === 0 && elementBox.bottom === 0 && elementBox.right === 0)">
+    <svg 
+      width='0' 
+      height='0' 
+      v-if="!(elementBox.top === 0 && elementBox.left === 0 && elementBox.bottom === 0 && elementBox.right === 0)"
+    >
       <defs>
-        <clipPath id='ct' v-if="interactive">
+        <clipPath id='blocker' v-if="interactive">
           <path 
             :d="`
               M 0.00,0.00 V ${windowHeight} H ${windowWidth} V 0.00 Z 
@@ -140,15 +148,15 @@ export default {
   height: 100%;
   background-color: rgba(61, 73, 99, 0.8);
   justify-content: flex-end;
-  clip-path: url(#cp);
-  -webkit-clip-path: url(#cp);
+  clip-path: url(#cutout);
+  -webkit-clip-path: url(#cutout);
   top: 0;
   left: 0;
 }
 
 .svg-callout.transparent {
   background-color: transparent;
-  clip-path: url(#ct);
-  -webkit-clip-path: url(#ct);
+  clip-path: url(#blocker);
+  -webkit-clip-path: url(#blocker);
 }
 </style>
