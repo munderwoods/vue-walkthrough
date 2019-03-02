@@ -115,7 +115,7 @@ export default {
       } else if(this.completion.type === "event") {
         this.$eventBus.$on(this.completion.payload, this.incrementWalkthrough); 
       } else if(this.completion.type === "time") {
-        setTimeout(this.incrementWalkthrough, 5000);
+        setTimeout(this.incrementWalkthrough, this.completion.payload);
       }
 
     },

@@ -16,7 +16,7 @@ export default {
         [
           {
             elementId: 'content',
-            completion: {type: 'next', payload: null},
+            completion: {type: 'time', payload: 3000},
             text: "Walkthroughs are data driven, built out of steps you define in JSON. Click next.",
             interactive: false,
           },
