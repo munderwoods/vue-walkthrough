@@ -70,6 +70,14 @@ export default {
   color: rgb(179, 219, 255);
 }
 
+h1 {
+  color: rgb(179, 219, 255);
+}
+
+p {
+  color: rgb(179, 219, 255);
+}
+
 body {
   margin:0;
   overflow-y:scroll;

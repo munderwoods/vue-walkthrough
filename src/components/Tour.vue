@@ -76,7 +76,7 @@ export default {
           {
             elementId: 'button2',
             completion: {type: 'click', payload: null},
-            text: "Walkthroughs can seamlessly lead into one another. To begin another walkthrough from within this walk through, click Begin Part 2",
+            text: "Walkthroughs can seamlessly lead into one another. To begin another walkthrough from within this one, click Begin Part 2.",
             pad: 800,
           },
         ],
