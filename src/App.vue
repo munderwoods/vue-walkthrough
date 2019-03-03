@@ -2,27 +2,36 @@
   <div id="app">
     <div class="content" id="content">
       <img alt="Vue logo" src="./assets/logo.png" id="vue-logo">
-      <Explainer/>
+      <h1 id="welcome">Welcome</h1>
+      <p>This is a demonstration of a walkthrough Vue component created by Matthew Underwood.</p>
+      <p>This component includes an alternate implementation for Safari. It will work, but it won't be as attractive.</p>
+      <br>
+      <button @click="start('tour')">Begin Demonstration</button>
+      <br>
+      <button id="button2" @click="start('tour2')">Begin Part 2</button>
+      <br>
+      <br>
       <br>
       <input type="checkbox" id="checkbox">
       <br>
       <br>
       <p class="animation" id="animation" @mouseover="animate">{{active ? "I'm quite a bit larger." : "I'm small."}}</p>
-      <Tour/>
       <p class="bottom" id="bottom">Bottom</p>
     </div>
+      <Tour/>
+      <Tour2/>
   </div>
 </template>
 
 <script>
-import Explainer from './components/Explainer.vue'
 import Tour from './components/Tour.vue'
+import Tour2 from './components/Tour2.vue'
 
 export default {
   name: 'app',
   components: {
-    Explainer,
-    Tour
+    Tour,
+    Tour2
   }, 
 
   data() {
@@ -43,6 +52,10 @@ export default {
   methods: {
     animate() {
       this.active = !this.active;
+    },
+
+    start(tour) {
+      this.$eventBus.$emit('start_walkthrough', tour);
     }
   }
 }

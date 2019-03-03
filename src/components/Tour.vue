@@ -54,19 +54,19 @@ export default {
             elementId: 'checkbox',
             completion: {type: 'next', payload: null},
             text: "The gray mask has a hole cut in it so there's no need to pass events through. You are actually interacting with the underlying elements normally. Try checking the checkbox then click Next.",
-            pad: 500,
+            pad: 800,
           },
           {
             elementId: 'checkbox',
             completion: {type: 'next', payload: null},
             text: "Try checking the checkbox again. This step is not interactive. This functionality allows for explanatory steps that can't be broken by unwanted user inputs. Click Next.",
-            pad: 500,
+            pad: 800,
             interactive: false,
           },
           {
             elementId: 'bottom',
             completion: {type: 'next', payload: null},
-            text: "If there is't enough space to fit the instruction on the bottom of the screen then it's automatically pushed to the top. The highlighted element will also be scrolled into view smoothly. You can define a default scroll offset if you have a persistent nav bar, or a specific scroll offset for each step.",
+            text: "If there is't enough space to fit the instruction on the bottom of the screen then it's automatically pushed to the top. The highlighted element will also be scrolled into view smoothly. You can define a default scroll offset if you have a persistent nav bar, and a specific scroll offset for each step.",
           },
           {
             elementId: 'animation',
@@ -74,10 +74,10 @@ export default {
             text: "The callout listens for mutations on the element that it's highlighting. Mouse over the highlighted element a few times then press Next.",
           },
           {
-            elementId: 'vue-logo',
-            completion: {type: 'next', payload: null},
-            text: "The overflow setting on the document body is stored and over-written for the duration of the walkthrough. When you click Finish you will see a scroll bar reappear. This will conclude the demonstration. Thanks.",
-            pad: 500,
+            elementId: 'button2',
+            completion: {type: 'click', payload: null},
+            text: "Walkthroughs can seamlessly lead into one another. To begin another walkthrough from within this walk through, click Begin Part 2",
+            pad: 800,
           },
         ],
     }

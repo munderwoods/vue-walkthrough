@@ -9,7 +9,7 @@
 
         <div class="buttons">
 				<button 
-					v-if="step.completion.type === 'next'" 
+					v-if="step.completion.type === 'next' || final" 
 					@click="incrementWalkthrough" 
           :style="buttonStyle"
 				>{{final ? 'Finish' : 'Next'}}
@@ -208,6 +208,7 @@ export default {
   font-weight: 400;
   justify-content:space-between;
   box-shadow: 3px 3px 15px #33333322;
+  text-align: left;
 }
 
 .instruction-text {
