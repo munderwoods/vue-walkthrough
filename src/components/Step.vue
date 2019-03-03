@@ -2,19 +2,20 @@
 	<div class="step">
 		<div v-if="showInstruction" :class="windowHeight - elementBox.bottom >= 140 ? '' : 'high'" class="body">
 
-			<div class="instruction">
+			<div class="instruction" :style="instructionStyle">
 				<div class="instruction-text">
-					<slot></slot>
+          {{this.step.text}}
 				</div>
 
         <div class="buttons">
 				<button 
-					v-if="this.completion.type === 'next'" 
+					v-if="step.completion.type === 'next'" 
 					@click="incrementWalkthrough" 
+          :style="buttonStyle"
 				>{{final ? 'Finish' : 'Next'}}
 				</button>
 
-        <button @click="cancel" v-if="!final">Close Guide</button>
+        <button @click="cancel" v-if="!final" :style="buttonStyle">Close Guide</button>
         </div>
 
 			</div>
@@ -24,7 +25,15 @@
 
 <script>
 export default {
-  props: ['elementId', 'completion', 'final', 'windowHeight'],
+  props: [
+    'step', 
+    'step.completion', 
+    'final', 
+    'windowHeight',
+    'instructionStyle',
+    'buttonStyle',
+    'defaultPad',
+  ],
   components: {  },
 
   data() {
@@ -48,7 +57,7 @@ export default {
         this.cancel();
       } else {
 
-        this.element = document.getElementById(this.elementId);
+        this.element = document.getElementById(this.step.elementId);
 
         if(this.element) {
           clearInterval(this.intervalId);
@@ -56,8 +65,10 @@ export default {
           window.addEventListener('scroll', this.scrollDisplayTimeout, false); 
           window.addEventListener('resize', this.cancel);
 
-          const topPad = 152;
-          window.scrollTo({top: this.element.offsetTop - topPad, behavior: "smooth"});
+          window.scrollTo({
+            top: this.element.offsetTop - this.defaultPad - (this.step.pad ? this.step.pad : 0), 
+            behavior: "smooth"
+          });
 
           window.setTimeout(() => {
             if(!this.scroll) {
@@ -110,12 +121,12 @@ export default {
       this.showInstruction = true;
       this.element.focus();
 
-      if(this.completion.type === "click") {
+      if(this.step.completion.type === "click") {
         this.element.addEventListener("click", this.incrementWalkthrough);
-      } else if(this.completion.type === "event") {
-        this.$eventBus.$on(this.completion.payload, this.incrementWalkthrough); 
-      } else if(this.completion.type === "time") {
-        setTimeout(this.incrementWalkthrough, this.completion.payload);
+      } else if(this.step.completion.type === "event") {
+        this.$eventBus.$on(this.step.completion.payload, this.incrementWalkthrough); 
+      } else if(this.step.completion.type === "time") {
+        setTimeout(this.incrementWalkthrough, this.step.completion.payload);
       }
 
     },
@@ -134,10 +145,10 @@ export default {
 			this.mutationObserver.disconnect();
       this.$eventBus.$emit('clear_element_box');
 
-      if(this.completion.type === 'click') {
+      if(this.step.completion.type === 'click') {
         this.element.removeEventListener("click", this.incrementWalkthrough);
-      } else if(this.completion.type === 'event') {
-        this.$eventBus.$off(this.completion.payload, this.incrementWalkthrough);
+      } else if(this.step.completion.type === 'event') {
+        this.$eventBus.$off(this.step.completion.payload, this.incrementWalkthrough);
       }
 
       window.removeEventListener('scroll', this.scrollDisplayTimeout, false); 
@@ -166,6 +177,8 @@ export default {
   display: flex;
   flex-direction: column;
   position: fixed;
+  left:0;
+  right: 0;
   width: 100%;
   z-index: 999;
   bottom: 10px;

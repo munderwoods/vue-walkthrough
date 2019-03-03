@@ -3,15 +3,15 @@
     <Step 
       :windowHeight="windowHeight"
       v-for="(step, index) in steps"
+      :step="step"
       v-if="stepNumber === index + 1"
       :key="index"
-      :elementId="step.elementId" 
-      :completion="step.completion" 
       :final="stepCount === stepNumber"
       @cancel="cancel"
-    >
-      {{step.text}}
-    </Step>
+      :instructionStyle="instructionStyle"
+      :buttonStyle="buttonStyle"
+      :defaultPad="defaultPad"
+    />
 
     <Callout 
       :showCallout="started"
@@ -27,7 +27,15 @@
 import Step from './Step.vue';
 import Callout from './Callout.vue';
 export default {
-  props: ['steps', 'stepCount', 'startPath', 'name'],
+  props: [
+    'steps', 
+    'stepCount', 
+    'startPath', 
+    'name',
+    'instructionStyle',
+    'buttonStyle',
+    'defaultPad',
+  ],
   components: { Step, Callout },
 
   data() {
