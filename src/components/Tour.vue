@@ -22,7 +22,7 @@ export default {
       startPath: null,
       instructionStyle: "background: #0074D9; color: rgb(179, 219, 255);",
       buttonStyle: "blue",
-      defaultPad: 30,
+      defaultPad: 100,
       steps: 
         [
           {
