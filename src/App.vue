@@ -1,24 +1,8 @@
 <template>
   <div id="app">
+		<Nav/>
     <div class="content" id="content">
-      <Nav/>
-      <img alt="Vue logo" src="./assets/logo.png" id="vue-logo">
-      <h1 id="welcome">Welcome</h1>
-      <p>This is a demonstration of a walkthrough Vue component created by Matthew Underwood.</p>
-      <p>This component includes an alternate implementation for Safari. It will work, but it won't be as attractive.</p>
-      <a href="https://github.com/munderwoods/vue-walkthrough" target="_blank">GitHub Repo</a>
-      <br>
-      <button @click="start('tour')">Begin Demonstration</button>
-      <br>
-      <button id="button2" @click="start('tour2')">Begin Part 2</button>
-      <br>
-      <br>
-      <br>
-      <input type="checkbox" id="checkbox">
-      <br>
-      <br>
-      <p class="animation" id="animation" @mouseover="animate">{{active ? "I'm quite a bit larger." : "I'm small."}}</p>
-      <p class="bottom" id="bottom">Bottom</p>
+			<router-view></router-view>
     </div>
       <Tour/>
       <Tour2/>
@@ -45,6 +29,7 @@ export default {
   },
 
 	mounted() {
+		console.log(this.$route);
 		window.addEventListener("keypress", e => {
 			if(String.fromCharCode(e.keyCode) === "c") {
 				this.$eventBus.$emit('c_pressed');
