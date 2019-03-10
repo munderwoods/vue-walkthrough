@@ -4,8 +4,8 @@
     <div class="content" id="content">
 			<router-view></router-view>
     </div>
-      <Tour/>
-      <Tour2/>
+    <Tour/>
+    <Tour2/>
   </div>
 </template>
 
@@ -22,32 +22,13 @@ export default {
     Nav
   }, 
 
-  data() {
-    return {
-      active: false,
-    }
-  },
-
 	mounted() {
-		console.log(this.$route);
 		window.addEventListener("keypress", e => {
 			if(String.fromCharCode(e.keyCode) === "c") {
 				this.$eventBus.$emit('c_pressed');
 			}
 		});
-
 	},
-
-  methods: {
-    animate() {
-      this.active = !this.active;
-    },
-
-    start(tour) {
-      this.$eventBus.$emit('start_walkthrough', tour);
-    },
-
-  }
 }
 </script>
 

@@ -20,7 +20,7 @@ export default {
     return {
       name: 'tour2',
       startPath: null,
-      instructionStyle: "color: #0074D9; background: rgb(179, 219, 255); text-align: center; flex-direction: column; align-items: center; font-family: monospace; text-decoration: underline; border-radius: 30px; padding: 10px; border: 3px solid #0074D9;",
+      instructionStyle: "color: #0074D9; background: rgb(179, 219, 255); text-align: center; flex-direction: column; align-items: center; font-family: monospace; border-radius: 30px; padding: 10px; border: 3px solid #0074D9;",
       buttonStyle: "color: #0074D9; background: rgb(179, 219, 255); border: 1px solid #0074D9; margin: 10px 10px 0 10px; border-radius: 0; font-weight: 100; font-family: monosp",
       defaultPad: 30,
       steps: 

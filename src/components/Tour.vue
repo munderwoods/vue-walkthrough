@@ -51,6 +51,12 @@ export default {
             pad: 500,
           },
           {
+            elementId: 'interactivity-link',
+            completion: {type: 'click', payload: null},
+            text: "Click on Interactivity.",
+            pad: 500,
+          },
+          {
             elementId: 'checkbox',
             completion: {type: 'next', payload: null},
             text: "The gray mask has a hole cut in it so there's no need to pass events through. You are actually interacting with the underlying elements normally. Try checking the checkbox then click Next.",
@@ -64,14 +70,37 @@ export default {
             interactive: false,
           },
           {
+            elementId: 'scroll-link',
+            completion: {type: 'click', payload: null},
+            text: "Click on Scroll.",
+            pad: 500,
+          },
+          {
+            elementId: 'top',
+            completion: {type: 'next', payload: null},
+            text: "The highlighted element will be scrolled into view smoothly. You can define a default scroll offset if you have a persistent nav bar, and a specific scroll offset for each step.",
+          },
+          {
             elementId: 'bottom',
             completion: {type: 'next', payload: null},
-            text: "If there is't enough space to fit the instruction on the bottom of the screen then it's automatically pushed to the top. The highlighted element will also be scrolled into view smoothly. You can define a default scroll offset if you have a persistent nav bar, and a specific scroll offset for each step.",
+            text: "If there is't enough space to fit the instruction on the bottom of the screen then it's automatically pushed to the top.",
+          },
+          {
+            elementId: 'mutate-link',
+            completion: {type: 'click', payload: null},
+            text: "Click on Mutation.",
+            pad: 500,
           },
           {
             elementId: 'animation',
             completion: {type: 'next', payload: null},
             text: "The callout listens for mutations on the element that it's highlighting. Mouse over the highlighted element a few times then press Next.",
+          },
+          {
+            elementId: 'end-link',
+            completion: {type: 'click', payload: null},
+            text: "Click on End.",
+            pad: 500,
           },
           {
             elementId: 'button2',
