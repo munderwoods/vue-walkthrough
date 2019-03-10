@@ -15,7 +15,7 @@
         >{{final ? 'Finish' : 'Next'}}
         </button>
 
-        <button @click="cancel" v-if="!final" :style="buttonStyle">Close Guide</button>
+        <button @click="cancel" v-if="!final" :style="buttonStyle" style="opacity: .5">Close Guide</button>
         </div>
 
       </div>

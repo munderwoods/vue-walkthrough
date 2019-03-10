@@ -20,4 +20,9 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
+#checkbox {
+  height: 60px;
+  width: 60px;
+}
 </style>

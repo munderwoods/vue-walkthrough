@@ -21,7 +21,7 @@ export default {
       name: 'tour',
       startPath: null,
       instructionStyle: "background: #0074D9; color: rgb(179, 219, 255);",
-      buttonStyle: "blue",
+      buttonStyle: "",
       defaultPad: 100,
       steps: 
         [
@@ -72,7 +72,7 @@ export default {
           {
             elementId: 'scroll-link',
             completion: {type: 'click', payload: null},
-            text: "Click on Scroll.",
+            text: "Click on Scrolling.",
             pad: 500,
           },
           {

@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style scoped>
+#navbar {
+  height: 60px;
+}
 
 .bar {
   display: flex;

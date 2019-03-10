@@ -62,7 +62,7 @@ button {
   color:rgb(179, 219, 255);
   border: 2px solid rgb(179, 219, 255);
   border-radius: 4px;
-  margin: 1px;
+  margin: 2px;
   padding: 5px 10px;
   cursor: pointer;
 	white-space: nowrap;
