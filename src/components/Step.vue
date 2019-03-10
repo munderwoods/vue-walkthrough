@@ -103,7 +103,7 @@ export default {
     display() {
       this.mutationObserver = new MutationObserver( mutations => {
         mutations.forEach(mutation => {
-          this.setBox();
+          this.setBox(mutation);
         });
       });
 

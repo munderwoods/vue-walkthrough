@@ -36,9 +36,9 @@ export default {
 <style scoped>
 
 .navbar {
-  position: fixed;
+  position: fixed !important;
   top: 0;
-  width: 100%;
+  width: 100% !important;
 }
 
 .nav-item {
