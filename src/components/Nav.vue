@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
     <ul class="navbar-nav">
       <li class="nav-item" id="home-link">
         <router-link class="nav-link" to="/">Home</router-link>
@@ -17,7 +17,7 @@
         <router-link class="nav-link" to="End">End</router-link>
       </li>
     </ul>
-	</nav>
+  </nav>
 </template>
 
 <script>
