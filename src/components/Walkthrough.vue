@@ -57,42 +57,42 @@ export default {
   created() {
     this.$eventBus.$on(`start_walkthrough`, walkthroughName => {
 
-			this.$eventBus.$emit('close_walkthroughs', this.name);
-			this.$eventBus.$on('close_walkthroughs', () => {
-				this.cancel();
-			});
+      this.$eventBus.$emit('close_walkthroughs', this.name);
+      this.$eventBus.$on('close_walkthroughs', () => {
+        this.cancel();
+      });
 
-			this.$nextTick(() => {
-				if(!this.started && walkthroughName === this.name) {
-					this.windowWidth = window.innerWidth;
-					this.windowHeight = window.innerHeight;
+      this.$nextTick(() => {
+        if(!this.started && walkthroughName === this.name) {
+          this.windowWidth = window.innerWidth;
+          this.windowHeight = window.innerHeight;
 
-					this.started = true;
+          this.started = true;
 
-					this.$eventBus.$on('set_element_box', elementBox => {
-						this.elementBox = elementBox;
-					})
+          this.$eventBus.$on('set_element_box', elementBox => {
+            this.elementBox = elementBox;
+          })
 
-					this.$eventBus.$on('clear_element_box', () => {
-						this.elementBox = {top: 0, left: 0, bottom: 0, right: 0};
-					})
+          this.$eventBus.$on('clear_element_box', () => {
+            this.elementBox = {top: 0, left: 0, bottom: 0, right: 0};
+          })
 
-					if(this.startPath && this.$route.startPath !== this.startPath) {
-						this.$router.push(this.startPath);
-					}
+          if(this.startPath && this.$route.startPath !== this.startPath) {
+            this.$router.push(this.startPath);
+          }
 
-					this.incrementWalkthrough()
+          this.incrementWalkthrough()
 
           this.switchScroll("on");
 
-					document.addEventListener('keyup', e => {
-						if(e.code === 'Escape') {
-							this.cancel();
-						}
-					});
+          document.addEventListener('keyup', e => {
+            if(e.code === 'Escape') {
+              this.cancel();
+            }
+          });
 
-				}
-			})
+        }
+      })
     });
 
     this.$eventBus.$on('increment_walkthrough', () => {

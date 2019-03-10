@@ -1,25 +1,25 @@
 <template>
-	<div class="step">
-		<div v-if="showInstruction" :class="windowHeight - elementBox.bottom >= 140 ? '' : 'high'" class="body">
+  <div class="step">
+    <div v-if="showInstruction" :class="windowHeight - elementBox.bottom >= 140 ? '' : 'high'" class="body">
 
-			<div class="instruction" :style="instructionStyle">
-				<div class="instruction-text">
+      <div class="instruction" :style="instructionStyle">
+        <div class="instruction-text">
           {{this.step.text}}
-				</div>
+        </div>
 
         <div class="buttons">
-				<button 
-					v-if="step.completion.type === 'next' || final" 
-					@click="incrementWalkthrough" 
+        <button 
+          v-if="step.completion.type === 'next' || final" 
+          @click="incrementWalkthrough" 
           :style="buttonStyle"
-				>{{final ? 'Finish' : 'Next'}}
-				</button>
+        >{{final ? 'Finish' : 'Next'}}
+        </button>
 
         <button @click="cancel" v-if="!final" :style="buttonStyle">Close Guide</button>
         </div>
 
-			</div>
-		</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
       intervalId: null,
       scroll: false,
       elementBox: null,
-			isScrolling: null,
+      isScrolling: null,
       mutationObserver: null,
       attempts: 0,
     }
@@ -82,39 +82,39 @@ export default {
 
   methods: {
     setBox() {
-			if(this.element) {
-				this.elementBox = this.element.getBoundingClientRect();
-				this.$eventBus.$emit('set_element_box', this.elementBox);
-			}
+      if(this.element) {
+        this.elementBox = this.element.getBoundingClientRect();
+        this.$eventBus.$emit('set_element_box', this.elementBox);
+      }
     },
 
-		scrollDisplayTimeout() {
+    scrollDisplayTimeout() {
       this.scroll = true;
-			window.clearTimeout(this.isScrolling);
+      window.clearTimeout(this.isScrolling);
 
-			this.isScrolling = setTimeout(() => {
+      this.isScrolling = setTimeout(() => {
         if(this.element) {
           this.display();
           this.scroll = false;
         }
-			}, 66);
-		},
+      }, 66);
+    },
 
     display() {
-			this.mutationObserver = new MutationObserver( mutations => {
-				mutations.forEach(mutation => {
-					this.setBox();
-				});
-			});
+      this.mutationObserver = new MutationObserver( mutations => {
+        mutations.forEach(mutation => {
+          this.setBox();
+        });
+      });
 
-			this.mutationObserver.observe(this.element, {
-				attributes: true,
-				characterData: true,
-				childList: true,
-				subtree: true,
-				attributeOldValue: true,
-				characterDataOldValue: true
-			});
+      this.mutationObserver.observe(this.element, {
+        attributes: true,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: true,
+        characterDataOldValue: true
+      });
 
       this.setBox();
 
@@ -142,7 +142,7 @@ export default {
     },
 
     cleanup() {
-			this.mutationObserver.disconnect();
+      this.mutationObserver.disconnect();
       this.$eventBus.$emit('clear_element_box');
 
       if(this.step.completion.type === 'click') {
@@ -220,8 +220,8 @@ export default {
 }
 
 .buttons {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 </style>
