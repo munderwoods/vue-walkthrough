@@ -37,19 +37,22 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   background: white;
   position: fixed;
   top: 0;
   width: 100%;
+  height: 50px;
 }
 
 .nav-item {
-  display: flex;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 a {
   color: #333;
+  text-decoration: none;
+  height: 40px;
 }
 </style>

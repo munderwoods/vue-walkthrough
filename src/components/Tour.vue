@@ -79,6 +79,7 @@ export default {
             elementId: 'top',
             completion: {type: 'next', payload: null},
             text: "The highlighted element will be scrolled into view smoothly. You can define a default scroll offset if you have a persistent nav bar, and a specific scroll offset for each step.",
+            pad: 800,
           },
           {
             elementId: 'bottom',
@@ -95,6 +96,7 @@ export default {
             elementId: 'animation',
             completion: {type: 'next', payload: null},
             text: "The callout listens for mutations on the element that it's highlighting. Mouse over the highlighted element a few times then press Next.",
+            pad: 800,
           },
           {
             elementId: 'end-link',
