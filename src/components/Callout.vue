@@ -1,12 +1,12 @@
 <template>
   <div v-if="showCallout">
     <div 
-			v-if="safari"
+      v-if="safari"
       class="top callout flex-column" 
       :style="`height: ${elementBox.top}px;`"
     />
     <div 
-			v-if="safari"
+      v-if="safari"
       class="left callout flex-column" 
       :style="
         `top: ${elementBox.top}px; 
@@ -15,7 +15,7 @@
       "
     />
     <div 
-			v-if="safari"
+      v-if="safari"
       class="right callout flex-column" 
       :style="
         `top: ${elementBox.top}px; 
@@ -24,13 +24,13 @@
       "
     />
     <div 
-			v-if="safari"
+      v-if="safari"
       class="bottom callout flex-column" 
       :style="
         `top: ${elementBox.bottom}px; 
         height: ${windowHeight - elementBox.bottom}px;`
       "
-		/>
+    />
 
     <svg 
       width='0' 
